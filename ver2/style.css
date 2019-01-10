@@ -1,0 +1,370 @@
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --largeCubeSize: 300px;
+    --transLarge: 150px;
+    --negTransLarge: -150px;
+    --smallCubeSize: 100px;
+    --transSmall: 50px;
+    --negTransSmall: -50px;
+}
+
+.RC{
+    transform-style: preserve-3d;  
+}
+
+
+/*--------------------------*/
+/*    Column Marker Cube    */
+/*--------------------------*/
+
+/* #colContainer{
+    height: var(--largeCubeSize);
+    width: 150px;
+    perspective: 800px;
+    position: absolute;
+    transform-style: preserve-3d;
+}
+
+#colCube{
+    position: relative;
+    left: 450px;
+    top: 200px;
+    height: var(--largeCubeSize);
+    width: 150px;
+    transform-style: preserve-3d;
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+} */
+
+/*------------------*/
+/*    Large Cube    */
+/*------------------*/
+
+.largeContainer{
+    height: var(--largeCubeSize);
+    width: var(--largeCubeSize);
+    perspective: 800px;
+    position: absolute;
+    transform-style: preserve-3d;
+    /* transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg);  */
+}
+
+.largeCube{
+    position: relative;
+    left: 450px;
+    top: 200px;
+    height: var(--largeCubeSize);
+    width: var(--largeCubeSize);
+    transform-style: preserve-3d;
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+}
+
+#largeCube1{
+    /* transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg);  */
+}
+
+#largeCube2{
+    /* transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg);  */
+}
+
+.largeSquare{
+    position: absolute;
+    height: var(--largeCubeSize);
+    width: var(--largeCubeSize);
+    /* border: 3px solid black;   */
+}
+
+.largeFront{
+    transform: translateZ(var(--transLarge));
+}
+
+.largeBack{
+    transform: rotateX(180deg) translateZ(var(--transLarge));
+}
+
+.largeTop{
+    transform: rotateX(90deg) translateZ(var(--transLarge));
+}
+
+.largeBottom{
+    transform: rotateX(-90deg) translateZ(var(--transLarge));
+}
+
+.largeLeft{
+    transform: rotateY(-90deg) translateZ(var(--transLarge));
+}
+
+.largeRight{
+    transform: rotateY(90deg) translateZ(var(--transLarge));
+}
+
+
+
+
+
+
+/*------------------*/
+/*    Small Cube    */
+/*------------------*/
+
+.smallContainer{
+    height: var(--smallCubeSize);
+    width: var(--smallCubeSize);
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+#smallContainer1{
+    position: absolute;
+    top: 0;
+    transform: translateZ(150px);
+}
+
+
+#smallContainer2{
+    position: absolute;
+    top: 0;
+    transform: translateZ(50px);
+}
+
+#smallContainer3{
+    position: absolute;
+    top: 0;
+    transform: translateZ(-50px);
+}
+
+#smallContainer4{
+    position: absolute;
+    top: 100px;
+    transform: translateZ(150px);
+}
+
+#smallContainer5{
+    position: absolute;
+    top: 100px;
+    transform: translateZ(50px);
+}
+
+#smallContainer6{
+    position: absolute;
+    top: 100px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer7{
+    position: absolute;
+    top: 200px;
+    transform: translateZ(150px);
+}
+
+#smallContainer8{
+    position: absolute;
+    top: 200px;
+    transform: translateZ(50px);
+}
+
+#smallContainer9{
+    position: absolute;
+    top: 200px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer10{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    transform: translateZ(150px);
+}
+
+#smallContainer11{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    transform: translateZ(50px);
+}
+
+#smallContainer12{
+    position: absolute;
+    top: 0;
+    left: 100px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer13{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform: translateZ(150px);
+}
+
+#smallContainer14{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform: translateZ(50px);
+}
+
+#smallContainer15{
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer16{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    transform: translateZ(150px);
+}
+
+#smallContainer17{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    transform: translateZ(50px);
+}
+
+#smallContainer18{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer19{
+    position: absolute;
+    top: 0;
+    left: 200px;
+    transform: translateZ(150px);
+}
+
+#smallContainer20{
+    position: absolute;
+    top: 0;
+    left: 200px;
+    transform: translateZ(50px);
+}
+
+#smallContainer21{
+    position: absolute;
+    top: 0;
+    left: 200px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer22{
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    transform: translateZ(150px);
+}
+
+#smallContainer23{
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    transform: translateZ(50px);
+}
+
+#smallContainer24{
+    position: absolute;
+    top: 100px;
+    left: 200px;
+    transform: translateZ(-50px);
+}
+
+#smallContainer25{
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    transform: translateZ(150px);
+}
+
+#smallContainer26{
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    transform: translateZ(50px);
+}
+
+#smallContainer27{
+    position: absolute;
+    top: 200px;
+    left: 200px;
+    transform: translateZ(-50px);
+}
+
+
+/*---------------------------------------------------------------*/
+
+
+.smallCube{
+    position: relative;
+    height: var(--smallCubeSize);
+    width: var(--smallCubeSize);
+    transform-style: preserve-3d;
+    transform: translateZ(var(--negTransSmall)) rotateX(0deg);
+}
+
+.smallSquare{
+    position: absolute;
+    height: var(--smallCubeSize);
+    width: var(--smallCubeSize);
+    border: 3px solid black;  
+}
+
+.smallFront{
+    transform: translateZ(var(--transSmall));
+}
+
+.smallBack{
+    transform: rotateX(180deg) translateZ(var(--transSmall));
+}
+
+.smallTop{
+    transform: rotateX(90deg) translateZ(var(--transSmall));
+}
+
+.smallBottom{
+    transform: rotateX(-90deg) translateZ(var(--transSmall));
+}
+
+.smallLeft{
+    transform: rotateY(-90deg) translateZ(var(--transSmall));
+}
+
+.smallRight{
+    transform: rotateY(90deg) translateZ(var(--transSmall));
+}
+
+.blue{
+    background-color: blue;
+}
+
+.red{
+    background-color: red;
+}
+
+.orange{
+    background-color: orange;
+}
+
+.green{
+    background-color: green; 
+}
+
+.yellow{
+    background-color: yellow; 
+}
+
+.white{
+    background-color: white;
+}
+
+.black{
+    background-color: black;
+}
+

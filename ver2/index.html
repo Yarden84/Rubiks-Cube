@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Rubik's Cube</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+</head>
+
+<body onkeydown="chooseMark(event);" onkeyup="playRC(event);">
+
+    <div class="RC">
+
+        <!-- <div id="colContainer">
+            <div id="colCube">
+
+                <div class="colSquare colFront"></div>
+                <div class="colSquare colBack"></div>
+                <div class="colSquare colTop"></div>
+                <div class="colSquare colBottom"></div>
+                <div class="colSquare colLeft"></div>
+                <div class="colSquare colRight"></div>
+
+            </div>
+        </div> -->
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube1">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer1">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue left top"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange left"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white top"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube2">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer2">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange left"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white top"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube3">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer3">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green left top"></div>
+                        <div class="smallSquare smallTop orange left"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white top"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube4">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer4">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue left mid"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white mid"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube5">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer5">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white mid" id="left"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube6">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer6">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green left mid"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft white mid"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube7">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer7">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue left bottom"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red left"></div>
+                        <div class="smallSquare smallLeft white bottom"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube8">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer8">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red left"></div>
+                        <div class="smallSquare smallLeft white bottom"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube9">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer9">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green left bottom"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red left"></div>
+                        <div class="smallSquare smallLeft white bottom"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube10">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer10">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue center top"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange center"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube11">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer11">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange center" id="top"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube12">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer12">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green center top"></div>
+                        <div class="smallSquare smallTop orange center"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube13">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer13">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue center mid"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube14">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer14">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube15">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer15">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green center mid"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube16">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer16">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue center bottom"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red center"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube17">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer17">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red center" id="bottom"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube18">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer18">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green center bottom"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red center"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight black"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube19">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer19">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue right top"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange right"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow top"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube20">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer20">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop orange right"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow top"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube21">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer21">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green right top"></div>
+                        <div class="smallSquare smallTop orange right"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow top"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube22">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer22">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue right mid"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow mid"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube23">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer23">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow mid" id="right"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube24">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer24">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green right mid"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom black"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow mid"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube25">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer25">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront blue right bottom"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red right"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow bottom"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube26">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer26">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack black"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red right"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow bottom"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="largeContainer">
+            <div class="largeCube" id="largeCube27">
+
+                <div class="largeSquare largeFront"></div>
+                <div class="largeSquare largeBack"></div>
+                <div class="largeSquare largeTop"></div>
+                <div class="largeSquare largeBottom"></div>
+                <div class="largeSquare largeLeft"></div>
+                <div class="largeSquare largeRight"></div>
+
+                <div class="smallContainer" id="smallContainer27">
+                    <div class="smallCube">
+                        <div class="smallSquare smallFront black"></div>
+                        <div class="smallSquare smallBack green right bottom"></div>
+                        <div class="smallSquare smallTop black"></div>
+                        <div class="smallSquare smallBottom red right"></div>
+                        <div class="smallSquare smallLeft black"></div>
+                        <div class="smallSquare smallRight yellow bottom"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

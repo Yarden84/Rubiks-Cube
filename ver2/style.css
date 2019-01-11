@@ -16,27 +16,7 @@
 }
 
 
-/*--------------------------*/
-/*    Column Marker Cube    */
-/*--------------------------*/
 
-/* #colContainer{
-    height: var(--largeCubeSize);
-    width: 150px;
-    perspective: 800px;
-    position: absolute;
-    transform-style: preserve-3d;
-}
-
-#colCube{
-    position: relative;
-    left: 450px;
-    top: 200px;
-    height: var(--largeCubeSize);
-    width: 150px;
-    transform-style: preserve-3d;
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
-} */
 
 /*------------------*/
 /*    Large Cube    */
@@ -368,3 +348,142 @@
     background-color: black;
 }
 
+
+
+/*---------------------------------------------------------------*/
+
+/*--------------------------*/
+/*    Column Marker Cube    */
+/*--------------------------*/
+
+#colContainer{
+    height: var(--largeCubeSize);
+    width: 100px;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    transform: translateZ(150px);
+}
+
+#colCube{
+    position: relative;
+    height: var(--largeCubeSize);
+    width: 100px;
+    transform-style: preserve-3d;
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+}
+
+#largeCubeCol{
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg); 
+    position: relative;
+    right: 100px;
+}
+
+.colSquare1{
+    position: absolute;
+    height: var(--largeCubeSize);
+    width: 100px;
+    background-color: rgba(169,169,169, 0.4);
+}
+
+.colSquare2{
+    position: absolute;
+    height: var(--largeCubeSize);
+    width: var(--largeCubeSize);
+    background-color: rgba(169,169,169, 0.4);
+}
+
+.colFront{
+    transform: translateZ(var(--transLarge));
+}
+
+.colBack{
+    transform: rotateX(180deg) translateZ(var(--transLarge));
+}
+
+.colTop{
+    transform: rotateX(90deg) translateZ(var(--transLarge));
+}
+
+.colBottom{
+    transform: rotateX(-90deg) translateZ(var(--transLarge));
+}
+
+.colLeft{
+    transform: rotateY(-90deg) translateZ(var(--transLarge));
+}
+
+.colRight{
+    transform: rotateY(90deg) translateZ(-50px);
+}
+
+
+/*---------------------------------------------------------------*/
+
+/*--------------------------*/
+/*    Row Marker Cube    */
+/*--------------------------*/
+
+#rowContainer{
+    height: var(--largeCubeSize);
+    width: 100px;
+    transform-style: preserve-3d;
+    position: absolute;
+    top: 0;
+    transform: translateZ(150px);
+    display: none;
+}
+
+#rowCube{
+    position: relative;
+    height: var(--largeCubeSize);
+    width: 100px;
+    transform-style: preserve-3d;
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+}
+
+#largeCubeRow{
+    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(90deg); 
+    position: relative;
+    right: 100px;
+}
+
+.rowSquare1{
+    position: absolute;
+    height: var(--largeCubeSize);
+    width: 100px;
+    background-color: rgba(169,169,169, 0.4);
+    /* background-color: red; */
+}
+
+.rowSquare2{
+    position: absolute;
+    height: var(--largeCubeSize);
+    width: var(--largeCubeSize);
+    background-color: rgba(169,169,169, 0.4);
+    /* background-color: red; */
+}
+
+.rowFront{
+    transform: translateZ(var(--transLarge));
+}
+
+.rowBack{
+    transform: rotateX(180deg) translateZ(var(--transLarge));
+}
+
+.rowTop{
+    transform: rotateX(90deg) translateZ(var(--transLarge));
+}
+
+.rowBottom{
+    transform: rotateX(-90deg) translateZ(var(--transLarge));
+}
+
+.rowLeft{
+    transform: rotateY(-90deg) translateZ(var(--transLarge));
+}
+
+.rowRight{
+    transform: rotateY(90deg) translateZ(-50px);
+}

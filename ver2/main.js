@@ -14,16 +14,19 @@ var cubeTopRow = document.getElementsByClassName('top');
 var cubeMidRow = document.getElementsByClassName('mid');
 var cubeBottomRow = document.getElementsByClassName('bottom');
 console.log('cubeLeftCol = ', cubeLeftCol);
-// console.log('cubeLeftCol[0] parent = ', cubeLeftCol[0].parentElement.parentElement.parentElement);
-// console.log('cubeLeftCol[0] parent id = ', cubeLeftCol[0].parentElement.parentElement.parentElement.id);
 
 
+var cubeDegrees = new Map();
+
+for (i = 1; i <= 29; i++) {
+    cubeDegrees.set('largeCube' + i, [0, 0]);
+}
+
+console.log('cubeDegrees =', cubeDegrees);
 
 /*-------------------------------------------------------------------------------------------------*/
 var degrees = 0;
-var degreesLeft = 0;
-var degreesCenter = 0;
-var degreesRight = 0;
+
 
 /*-----------------*/
 /*    Functions    */
@@ -129,46 +132,89 @@ function playRC(e) {
         }
     }
 
-    // var degrees = 0;
     //Move Cube
     if (chosenCubes) {
         var chosen = new Set(chosenArr);
         var uniqueChosenArr = [...chosen];
         switch (e.keyCode) {
             case 38:
-                degrees += 90;
-                // var topArr = [];
-                // var midArr = [];
-                // var bottomArr = [];
                 for (i = 0; i < uniqueChosenArr.length; i++) {
-                    // switch (chooseCol){
-                    //     case left:
-                    //         document.getElementById(uniqueChosenArr[i]).style.transform = "translateZ(var(--negTransLarge))  rotateX(" + degrees + "deg)";
-                    // }
-                    document.getElementById(uniqueChosenArr[i]).style.transform = "translateZ(var(--negTransLarge))  rotateX(" + degrees + "deg)";
+                    cubeDegrees.set(uniqueChosenArr[i], [cubeDegrees.get(uniqueChosenArr[i])[0] + 90, cubeDegrees.get(uniqueChosenArr[i])[1]]);
+                    document.getElementById(uniqueChosenArr[i]).style.transform = "translateZ(var(--negTransLarge))  rotateX(" + cubeDegrees.get(uniqueChosenArr[i])[0] + "deg)";
                     document.getElementById(uniqueChosenArr[i]).style.transition = "transform 0.7s";
-
-                    // var squareTop = document.getElementById(uniqueChosenArr[i]).childNodes[13].childNodes[1].querySelectorAll('.top');
-                    // var squareMid = document.getElementById(uniqueChosenArr[i]).childNodes[13].childNodes[1].querySelectorAll('.mid');
-                    // var squareBottom = document.getElementById(uniqueChosenArr[i]).childNodes[13].childNodes[1].querySelectorAll('.bottom');
-                    // squareTop.length > 0 ? topArr.push(squareTop) : null;
-                    // squareMid.length > 0 ? midArr.push(squareMid) : null;
-                    // squareBottom.length > 0 ? bottomArr.push(squareBottom) : null;
                 }
+
+                let upId1 = document.querySelectorAll('.' + chooseCol + '.top1')[0].id;
+                let upId2 = document.querySelectorAll('.' + chooseCol + '.top2')[0].id;
+                let upId3 = document.querySelectorAll('.' + chooseCol + '.top3')[0].id;
+                let upId4 = document.querySelectorAll('.' + chooseCol + '.mid1')[0].id;
+                let upId5 = document.querySelectorAll('.' + chooseCol + '.mid3')[0].id;
+                let upId6 = document.querySelectorAll('.' + chooseCol + '.bottom1')[0].id;
+                let upId7 = document.querySelectorAll('.' + chooseCol + '.bottom2')[0].id;
+                let upId8 = document.querySelectorAll('.' + chooseCol + '.bottom3')[0].id;
+
+                changeCubePlace(upId1, 'top', 'top', 'top1', 'top3');
+                changeCubePlace(upId2, 'top', 'mid', 'top2', 'mid3');
+                changeCubePlace(upId3, 'top', 'bottom', 'top3', 'bottom3');
+                changeCubePlace(upId4, 'mid', 'top', 'mid1', 'top2');
+                changeCubePlace(upId5, 'mid', 'bottom', 'mid3', 'bottom2');
+                changeCubePlace(upId6, 'bottom', 'top', 'bottom1', 'top1');
+                changeCubePlace(upId7, 'bottom', 'mid', 'bottom2', 'mid1');
+                changeCubePlace(upId8, 'bottom', 'bottom', 'bottom3', 'bottom1');
+
+                console.log('largeCube1 = ', document.getElementById('largeCube1'));
+                console.log('largeCube2 = ', document.getElementById('largeCube2'));
+                console.log('largeCube3 = ', document.getElementById('largeCube3'));
+                console.log('largeCube4 = ', document.getElementById('largeCube4'));
+                console.log('largeCube5 = ', document.getElementById('largeCube5'));
+                console.log('largeCube6 = ', document.getElementById('largeCube6'));
+                console.log('largeCube7 = ', document.getElementById('largeCube7'));
+                console.log('largeCube8 = ', document.getElementById('largeCube8'));
+                console.log('largeCube9 = ', document.getElementById('largeCube9'));
 
 
                 chosenCubes = false;
                 break;
+
             case 40:
-                degrees -= 90;
                 for (i = 0; i < uniqueChosenArr.length; i++) {
-                    document.getElementById(uniqueChosenArr[i]).style.transform = "translateZ(var(--negTransLarge)) rotateX(" + degrees + "deg)";
+                    cubeDegrees.set(uniqueChosenArr[i], [cubeDegrees.get(uniqueChosenArr[i])[0] - 90, cubeDegrees.get(uniqueChosenArr[i])[1]]);
+                    document.getElementById(uniqueChosenArr[i]).style.transform = "translateZ(var(--negTransLarge)) rotateX(" + cubeDegrees.get(uniqueChosenArr[i])[0] + "deg)";
                     document.getElementById(uniqueChosenArr[i]).style.transition = "transform 0.7s";
                 }
+
+                let downId1 = document.querySelectorAll('.' + chooseCol + '.top1')[0].id;
+                let downId2 = document.querySelectorAll('.' + chooseCol + '.top2')[0].id;
+                let downId3 = document.querySelectorAll('.' + chooseCol + '.top3')[0].id;
+                let downId4 = document.querySelectorAll('.' + chooseCol + '.mid1')[0].id;
+                let downId5 = document.querySelectorAll('.' + chooseCol + '.mid3')[0].id;
+                let downId6 = document.querySelectorAll('.' + chooseCol + '.bottom1')[0].id;
+                let downId7 = document.querySelectorAll('.' + chooseCol + '.bottom2')[0].id;
+                let downId8 = document.querySelectorAll('.' + chooseCol + '.bottom3')[0].id;
+
+                changeCubePlace(downId1, 'top', 'bottom', 'top1', 'bottom1');
+                changeCubePlace(downId2, 'top', 'mid', 'top2', 'mid1');
+                changeCubePlace(downId3, 'top', 'top', 'top3', 'top1');
+                changeCubePlace(downId4, 'mid', 'bottom', 'mid1', 'bottom2');
+                changeCubePlace(downId5, 'mid', 'top', 'mid3', 'top2');
+                changeCubePlace(downId6, 'bottom', 'bottom', 'bottom1', 'bottom3');
+                changeCubePlace(downId7, 'bottom', 'mid', 'bottom2', 'mid3');
+                changeCubePlace(downId8, 'bottom', 'top', 'bottom3', 'top3');
+
+                console.log('largeCube1 = ', document.getElementById('largeCube1'));
+                console.log('largeCube2 = ', document.getElementById('largeCube2'));
+                console.log('largeCube3 = ', document.getElementById('largeCube3'));
+                console.log('largeCube4 = ', document.getElementById('largeCube4'));
+                console.log('largeCube5 = ', document.getElementById('largeCube5'));
+                console.log('largeCube6 = ', document.getElementById('largeCube6'));
+                console.log('largeCube7 = ', document.getElementById('largeCube7'));
+                console.log('largeCube8 = ', document.getElementById('largeCube8'));
+                console.log('largeCube9 = ', document.getElementById('largeCube9'));
+
                 chosenCubes = false;
                 break;
         }
-        console.log("degrees = ", degrees);
+
     }
 
     console.log("chosenArr = ", chosenArr);
@@ -196,6 +242,17 @@ function markRow(cubeFace, placeEle) {
         chosenArr[i] = cubeFace[i].id;
     }
     chosenArr[cubeFace.length] = document.getElementById('rowContainer').parentElement.id;
+}
+
+function changeCubePlace(id, class1Remove, class1Add, class2Remove, class2Add) {
+
+    document.getElementById(id).classList.add(class1Add, class2Add);
+    document.getElementById(id).classList.remove(class2Remove);
+
+    if (class1Remove !== class1Add) {
+        document.getElementById(id).classList.remove(class1Remove);
+    }
+
 }
 
 

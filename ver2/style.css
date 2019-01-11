@@ -373,7 +373,7 @@
     transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
 }
 
-#largeCubeCol{
+#largeCube28{
     transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg); 
     position: relative;
     right: 100px;
@@ -442,7 +442,7 @@
     transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
 }
 
-#largeCubeRow{
+#largeCube29{
     transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(90deg); 
     position: relative;
     right: 100px;

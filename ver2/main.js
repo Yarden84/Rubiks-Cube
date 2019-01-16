@@ -20,13 +20,11 @@ console.log('cubeLeftCol = ', cubeLeftCol);
 
 
 var cubeDegrees = new Map();
-var cubeAxis = new Map();
 var cubeLastChange = new Map();
 var cubePosNeg = new Map();
 
 for (i = 1; i <= 29; i++) {
     cubeDegrees.set('largeCube' + i, [0, 0, 0]);
-    cubeAxis.set('largeCube' + i, [0, 1, 2]);
     cubeLastChange.set('largeCube' + i, '');
     cubePosNeg.set('largeCube' + i, 1);
 }
@@ -167,7 +165,7 @@ function playRC(e) {
                 for (i = 0; i < uniqueChosenArr.length; i++) {
 
 
-                    rotateCube(uniqueChosenArr[i], 90, 0, 0);
+                    rotateCube(uniqueChosenArr[i], 90, 'up');
                     // console.log('cubeAxis1 = ',cubeAxis.get(uniqueChosenArr[i]));
                     // changeAxis(uniqueChosenArr[i], 'up');
                     cubeLastChange.set(uniqueChosenArr[i], 'up');
@@ -255,7 +253,8 @@ function playRC(e) {
             case 37: //Left
                 for (i = 0; i < uniqueChosenArr.length; i++) {
 
-                    (i === (uniqueChosenArr.length - 1) ? rotateCube(uniqueChosenArr[i], 0, -90, 90) : rotateCube(uniqueChosenArr[i], 0, (-90 * cubePosNeg.get(uniqueChosenArr[i])), 0));
+                    // (i === (uniqueChosenArr.length - 1) ? rotateCube(uniqueChosenArr[i], 0, -90, 90) : rotateCube(uniqueChosenArr[i], 0, (-90 * cubePosNeg.get(uniqueChosenArr[i])), 0));
+                    (i === (uniqueChosenArr.length - 1) ? rotateCube(uniqueChosenArr[i], -90, 'leftCol') : rotateCube(uniqueChosenArr[i], (-90 * cubePosNeg.get(uniqueChosenArr[i])), 'left'));
 
                     // changeAxis(uniqueChosenArr[i], 'left');
                     cubeLastChange.set(uniqueChosenArr[i], 'left');
@@ -338,7 +337,7 @@ function playRC(e) {
     }
 
     console.log("chosenArr = ", chosenArr);
-    console.log('cubeAxis of largeCube7 =', cubeAxis.get('largeCube7'));
+    // console.log('cubeAxis of largeCube7 =', cubeAxis.get('largeCube7'));
 }
 
 
@@ -379,29 +378,44 @@ function changeCubePlace(id, class1Remove, class1Add, class2Remove, class2Add) {
 
 }
 
-function rotateCube(cube, x, y, z) {
+function rotateCube(cube, num, keyDir) {
 
-    switch (cubeLastChange.get(cube)) {
+    switch (keyDir) {
         case 'up':
-            cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[2], cubeDegrees.get(cube)[1]]);
-            cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + x, cubeDegrees.get(cube)[1] + z, cubeDegrees.get(cube)[2] + y]);
+            switch (cubeLastChange.get(cube)) {
+                case 'left':
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[2], cubeDegrees.get(cube)[1], cubeDegrees.get(cube)[0]]);
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + num, cubeDegrees.get(cube)[1], cubeDegrees.get(cube)[2]]);
+                    break;
+                default:
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + num, cubeDegrees.get(cube)[1], cubeDegrees.get(cube)[2]]);
+                    break;
+            }
+            cubePosNeg.set(cube, cubePosNeg.get(cube) * (-1));
             break;
         case 'left':
-            cubeDegrees.set(cube, [cubeDegrees.get(cube)[2], cubeDegrees.get(cube)[1], cubeDegrees.get(cube)[0]]);
-            cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + x, cubeDegrees.get(cube)[1] + y, cubeDegrees.get(cube)[2] + z]);
+            switch (cubeLastChange.get(cube)) {
+                case 'up':
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[1] + num, cubeDegrees.get(cube)[2]]);
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[2], cubeDegrees.get(cube)[1]]);
+                    // cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[1], cubeDegrees.get(cube)[2] + num]);
+                    break;
+                default:
+                    cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[1] + num, cubeDegrees.get(cube)[2]]);
+                    break;
+            }
+
             break;
-        default:
-            cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + x, cubeDegrees.get(cube)[1] + y, cubeDegrees.get(cube)[2] + z]);
+        case 'leftCol':
+            cubeDegrees.set(cube, [cubeDegrees.get(cube)[0], cubeDegrees.get(cube)[1] + num, 90]);
             break;
     }
 
-    cubePosNeg.set(cube, cubePosNeg.get(cube) * (-1));
 
-    //adding x y z:
-    // cubeDegrees.set(cube, [cubeDegrees.get(cube)[0] + x, cubeDegrees.get(cube)[1] + y, cubeDegrees.get(cube)[2] + z]);
+    // cubePosNeg.set(cube, cubePosNeg.get(cube) * (-1));
 
-    //then switching them up using cubeAxis:
-    // cubeDegrees.set(cube, [cubeDegrees.get(cube)[cubeAxis.get(cube)[0]], cubeDegrees.get(cube)[cubeAxis.get(cube)[1]], cubeDegrees.get(cube)[cubeAxis.get(cube)[2]]]);
+
+
 
     document.getElementById(cube).style.transform = "translateZ(var(--negTransLarge)) rotateX(" + cubeDegrees.get(cube)[0] + "deg)  rotateY(" + cubeDegrees.get(cube)[1] + "deg) rotateZ(" + cubeDegrees.get(cube)[2] + "deg)";
 
@@ -411,36 +425,7 @@ function rotateCube(cube, x, y, z) {
     // console.log('cubeDegrees in rotateCube =', cubeDegrees.get(cube));
 }
 
-function changeAxis(cube, cubeMove) {
-    switch (cubeMove) {
-        case 'up':
-            if (cubeAxis.get(cube)[0] === 0) {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[0], cubeAxis.get(cube)[2], cubeAxis.get(cube)[1]]);
-            }
-            else if (cubeAxis.get(cube)[1] === 0) {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[2], cubeAxis.get(cube)[1], cubeAxis.get(cube)[0]]);
-            }
-            else {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[1], cubeAxis.get(cube)[0], cubeAxis.get(cube)[2]]);
-            }
-            break;
-        case 'left':
-            if (cubeAxis.get(cube)[0] === 1) {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[0], cubeAxis.get(cube)[2], cubeAxis.get(cube)[1]]);
-            }
-            else if (cubeAxis.get(cube)[1] === 1) {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[2], cubeAxis.get(cube)[1], cubeAxis.get(cube)[0]]);
-            }
-            else {
-                cubeAxis.set(cube, [cubeAxis.get(cube)[1], cubeAxis.get(cube)[0], cubeAxis.get(cube)[2]]);
-            }
-            break;
-    }
 
-    cubePosNeg.set(cube, cubePosNeg.get(cube) * (-1));
-
-    // console.log('cubeAxis in changeAxis =', cubeAxis.get(cube));
-}
 
 
 // left = 37

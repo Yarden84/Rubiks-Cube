@@ -38,7 +38,7 @@
     height: var(--largeCubeSize);
     width: var(--largeCubeSize);
     transform-style: preserve-3d;
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+    transform: translateZ(var(--negTransLarge));  
 }
 
 #largeCube1{
@@ -286,7 +286,7 @@
     height: var(--smallCubeSize);
     width: var(--smallCubeSize);
     transform-style: preserve-3d;
-    transform: translateZ(var(--negTransSmall)) rotateX(0deg);
+    transform: translateZ(var(--negTransSmall));
 }
 
 .smallSquare{
@@ -370,11 +370,11 @@
     height: var(--largeCubeSize);
     width: 100px;
     transform-style: preserve-3d;
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+    transform: translateZ(var(--negTransLarge));  
 }
 
 #largeCube28{
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg); 
+    transform: translateZ(var(--negTransLarge)); 
     position: relative;
     right: 100px;
 }
@@ -439,11 +439,11 @@
     height: var(--largeCubeSize);
     width: 100px;
     transform-style: preserve-3d;
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(0deg);  
+    transform: translateZ(var(--negTransLarge));  
 }
 
 #largeCube29{
-    transform: translateZ(var(--negTransLarge)) rotateX(0deg) rotateY(0deg) rotateZ(90deg); 
+    transform: translateZ(var(--negTransLarge)) rotateZ(90deg); 
     position: relative;
     right: 100px;
 }
@@ -487,3 +487,14 @@
 .rowRight{
     transform: rotateY(90deg) translateZ(-50px);
 }
+
+
+
+#largeCube7{
+    /* transform: translateZ(-150px) rotateX(0deg)  rotateY(0deg) rotateZ(0deg); */
+}
+
+#largeCube8{
+    /* transform: translateZ(-150px) rotateX(0deg)  rotateY(0deg); */
+}
+
